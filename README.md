@@ -71,3 +71,51 @@ ESPECIALIDAD
 * Atributos: COD_ESPECIALIDAD, ESPECIALIDAD
 
 DIAGRAMA ENTIDAD-RELACION
+![Primera entrega MySQL_pages-to-jpg-0005](https://github.com/user-attachments/assets/4717367f-cb4c-439e-9612-73b49ee7e7e4)
+
+
+## Vistas
+Se requiere una seri de vistas de labase de datos donde los usuarios puedan consultar subconjuntos de datos para que los usuarios puedan trabajar sin afectar la BD.
+
+* VISTA 1: Muestra una vista de los datos de los alumnos dela institucion educativa y de sus tutores.
+* VISTA 2: Muestra los datos de las inscripciones de los alumnos de la institucion.
+* VISTA 3: Permite visualizar las notas de los alumnos
+
+## Funciones
+Con el objetivo de agilizar las consultas a la base de datos se necesita contar con funciones que permitan realizar consultas rutinarias en la base de datos. 
+
+* Funcion 1. Permite Obtener la edad de un alumno determinado a partir del campo id_alumno. (Deterministica)
+
+* Funcion 2. Permite obtener el número total de alumnos inscritos enla institucion educativa para un año específico.
+
+* Funcion 3. Nos muestra la cantidad de vacantes disponibles en un aula en particular.
+
+* Funcion 4. Permite obtener la calificación promedio de un alumno en un curso específico
+
+## Procedimientos 
+Con el objetivo de aligerar las aplicaciones se solicito la creacion de procedimientos que permitan simplificar la conexion de la aplicacion con la base de datos.
+
+* Procedimiento 1: Permite insertar los datos de un nuevo alumno a la BD.
+* Procedimiento 2: Permite relacionar un tutor con el alumno por el cual responde ante la institucion educativa.
+* Procedimiento 3: Permite la carga de los datos para incripcion de un alumno determinado.
+
+## Triggers
+* Trigger 1: Tiene como objetivo verificar la capacidad del aula antes de la inscripción de los alunos
+* Trigger 2: Actualiza las vacantes libres al momento de inscribir alumno.
+* Trigger 3: Tiene como objetivo evitar que se ingrese un DNI duplicado en la tabla de alumnos
+* Trigger 4: Registra cualquier actualización en la tabla "docente" en una tabla de auditoría llamada "auditoria_docente".
+
+## Creacion de usuarios y asignacion de permisos
+Con el objetivo de mantener la integridad de la BD y sus elementos es necesario restringir el acceso de los usuarios y las acciones que ellos pueden realizar sobre la BD, para ello se crearan 5 usuarios genericos y se les asignaran permisos para que solo puedan realizar acciones autorizadas por el administrador de la BD.
+
+USUARIOS
+usuario1
+usuario2
+admin'@
+usuario3
+usuario4
+
+PERMISOS
+-- Usuario 1: Permisos para ejecutar procedimientos almacenados y funciones
+
+Usuario 2: SELECT, INSERT, y UPDATE en las tablas alumno y docente
