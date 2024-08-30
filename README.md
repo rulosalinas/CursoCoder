@@ -106,16 +106,21 @@ Con el objetivo de aligerar las aplicaciones se solicito la creacion de procedim
 * Trigger 4: Registra cualquier actualización en la tabla "docente" en una tabla de auditoría llamada "auditoria_docente".
 
 ## Creacion de usuarios y asignacion de permisos
-Con el objetivo de mantener la integridad de la BD y sus elementos es necesario restringir el acceso de los usuarios y las acciones que ellos pueden realizar sobre la BD, para ello se crearan 5 usuarios genericos y se les asignaran permisos para que solo puedan realizar acciones autorizadas por el administrador de la BD.
+Con el objetivo de mantener la integridad de la BD y sus elementos es necesario restringir el acceso de los usuarios y las acciones que ellos pueden realizar sobre la BD, para ello se crearon 5 usuarios genericos y se les asignaron permisos para que solo puedan realizar acciones autorizadas por el administrador de la BD.
 
 USUARIOS
-usuario1
-usuario2
-admin'@
-usuario3
-usuario4
+* admin
+* usuario1
+* usuario2
+* usuario3
+* usuario4
 
 PERMISOS
--- Usuario 1: Permisos para ejecutar procedimientos almacenados y funciones
+* admin: Es el usuario administrador de la base de datos, por lo tanto tiene todos los privilegios.
+* usuario 1: A este usuario se le asignaron permisos para ejecutar los procedimientos almacenados y funciones que se encuentran almacenados en la BD.
+* usuario 2: Este usuario solo tiene privilegios para realizar SELECT, INSERT, y UPDATE en las tablas alumno y docente
+* usuario 3: El usuario solo esta habilitado para seleccionar y actualizar a través de vistas.
+* usuario 4: El usuario tiene permisos completos para ejecutar todos los procedimientos almacenados y funciones, y puede consultar y modificar las vistas vw_alumnosActivos y vw_docentesPorEspecialidad. Además, tiene permisos completos sobre la tabla inscripcion, lo que le permite realizar operaciones de selección, inserción, actualización y eliminación en dicha tabla.
 
-Usuario 2: SELECT, INSERT, y UPDATE en las tablas alumno y docente
+# Backup
+Es necesario crear una copia de respaldo de los datos exixtente en la BD que puedan ser recuparados en caso de producirse un fallo de los datos principales. La copia de seguridad, incluye todas las tablas de la base de datos, sus vistas, procedimientos, funciones, triggers y permisos asignados a los usuarios.
